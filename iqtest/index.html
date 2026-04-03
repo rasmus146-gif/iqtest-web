@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <title>Svenskt IQ-Test - Utmaning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        window.onload = function() {
+            // 1. Hämta ID och Level från URL:en
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+            const level = urlParams.get('level');
+
+            // --- VIKTIGT: BYT UT DETTA MOT DITT KOPIERADE PAKETNAMN! ---
+            const packageName = "com.example.iqtest"; 
+            // -----------------------------------------------------------
+
+            if (id && level) {
+                // 2. Bygg länken till Google Play med "ryggsäcken" (referrer)
+                // %3D betyder "=" och %26 betyder "&" (måste kodas om för webben)
+                const playStoreLink = `https://play.google.com/store/apps/details?id=${packageName}&referrer=id%3D${id}%26level%3D${level}`;
+
+                // 3. Bygg Androids inbyggda "försök öppna appen"-länk
+                // Byt ut domänen här nere om du får en annan GitHub-adress!
+                const intentUrl = `intent://svenskt-iqtest.github.io/iqtest?id=${id}&level=${level}#Intent;scheme=https;package=${packageName};end`;
+
+                // 4. Skjut iväg användaren mot appen!
+                window.location.href = intentUrl;
+
+                // 5. Om appen inte öppnades efter 1,5 sekunder, skicka till Play Store!
+                setTimeout(function() {
+                    window.location.href = playStoreLink;
+                }, 1500);
+            }
+        };
+    </script>
+</head>
+<body style="background-color: #0F2027; color: white; text-align: center; font-family: sans-serif; padding-top: 50px;">
+    
+    <h1 style="font-size: 40px;">🧠</h1>
+    <h2>Öppnar utmaningen...</h2>
+    <p style="color: #ccc;">Dirigeras du inte vidare automatiskt?</p>
+    
+    <a href="#" onclick="window.location.href = 'https://play.google.com/store/apps/details?id=com.example.iqtest'" 
+       style="display: inline-block; background-color: #03A9F4; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin-top: 20px;">
+        Gå till Google Play
+    </a>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+Användarvillkor för Klokr
+1. Tjänsten
+Klokr tillhandahåller kognitiv träning och IQ-utmaningar. Tjänsten tillhandahålls i "befintligt skick".
+
+2. Medicinsk och vetenskaplig disclaimer
+Klokr är en applikation för underhållning och hjärngympa. De IQ-resultat som presenteras är estimat baserade på spelprestation och ska inte betraktas som en klinisk, psykologisk eller medicinsk diagnos. Vi tar inget ansvar för beslut fattade baserat på dessa resultat.
+
+3. Köp inuti appen (PRO-version)
+Köp av PRO-versionen är ett digitalt engångsköp.
+
+Ångerrätt: Genom att genomföra köpet samtycker du till att innehållet levereras omedelbart. Du bekräftar härmed att din lagstadgade ångerrätt (14 dagar) upphör att gälla i det ögonblick köpet slutförs och funktionerna låses upp.
+
+4. Ansvarsbegränsning
+Rasmus Johansson (Klokr) ansvarar inte för direkta eller indirekta skador, inklusive dataförlust eller utebliven vinst, som uppstår vid användning av appen. Vårt totala ansvar är begränsat till det belopp du betalat för PRO-versionen.
+
+🚀 Sista checklistan innan "Publicera":
+Ladda upp: Lägg filerna på din GitHub Pages.
+
+Länka: Klistra in länkarna i Google Play Console under "Policy".
+
+Support-mail: Uppdatera din kontaktinformation i Google Play Console till din nya "Klokr-mail".
+
+Google UMP: Dubbelkolla en sista gång i koden att samtyckesrutan dyker upp för användare i EU innan första annonsen laddas.

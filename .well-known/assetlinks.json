@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.iqtest", 
+      "sha256_cert_fingerprints": [
+        "D5:96:F2:4F:24:6F:09:FF:38:E6:75:2C:2A:4E:8F:3B:FF:1E:98:B5:2D:17:8A:9B:FE:51:A4:B1:86:BC:53:E2"
+      ]
+    }
+  }
+]

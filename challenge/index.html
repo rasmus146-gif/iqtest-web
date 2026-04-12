@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utmaning i Klokr!</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; background-color: #1a2a42; color: white; }
+        .box { background-color: #243b55; padding: 30px; border-radius: 16px; display: inline-block; max-width: 80%; }
+        h1 { color: #FFD700; }
+        a.button { display: inline-block; margin-top: 20px; padding: 15px 30px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Du har blivit utmanad! ⚔️</h1>
+        <p>Den här länken öppnar en utmaning i spelet <strong>Klokr</strong>.</p>
+        <p>Om appen inte öppnades automatiskt, klicka på knappen nedan eller ladda ner appen från Google Play.</p>
+        
+        <a href="#" id="openAppBtn" class="button">Öppna Utmaningen i Appen</a>
+    </div>
+
+    <script>
+        // Ett litet script som automatiskt försöker skicka användaren till appen igen
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var id = urlParams.get('id');
+            var level = urlParams.get('level');
+            
+            if(id) {
+                // Skapar en "intent"-länk för Android för att tvinga upp appen
+                var intentLink = "intent://klokr.se/challenge?id=" + id + "&level=" + level + "#Intent;scheme=https;package=se.klokr.app;end;";
+                document.getElementById('openAppBtn').href = intentLink;
+            }
+        };
+    </script>
+</body>
+</html>

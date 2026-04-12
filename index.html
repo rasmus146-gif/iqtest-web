@@ -1,3 +1,19 @@
+<head>
+    <script>
+        // Körs bara om besökaren landar på exakt "klokr.se" eller "klokr.se/"
+        if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
+            // Läs av webbläsarens språk (t.ex. "sv-SE" eller "en-US")
+            var userLang = navigator.language || navigator.userLanguage; 
+            
+            // Kolla om språket börjar på "sv" (Svenska)
+            if (userLang.startsWith('sv')) {
+                // Skicka dem direkt till den svenska sidan!
+                window.location.replace("/sv/");
+            }
+            // Om det inte är svenska händer inget, och de stannar på den engelska sidan.
+        }
+    </script>
+</head>
 <!DOCTYPE html>
 <html lang="en">
 <head>

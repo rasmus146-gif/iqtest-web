@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radera konto - Klokr</title>
+    <title>Radera konto / Delete Account - Klokr</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -49,32 +49,74 @@
         a:hover {
             text-decoration: underline;
         }
+        /* Döljer båda språken som standard tills skriptet körs */
+        #content-sv, #content-en {
+            display: none;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Radera konto och data för appen Klokr</h1>
+        
+        <!-- SVENSK TEXT -->
+        <div id="content-sv">
+            <h1>Radera konto och data för appen Klokr</h1>
+            <p>Du har rätt att när som helst begära att din profil och all tillhörande data raderas från appen Klokr.</p>
+            <h2>Så här begär du radering:</h2>
+            <p>Det snabbaste sättet är att använda raderingsknappen direkt inuti Klokr-appen under inställningar, vilket raderar all din data omedelbart. Om du inte längre har appen installerad kan du begära radering genom att skicka ett e-postmeddelande till <strong><a href="mailto:support@klokr.se">support@klokr.se</a></strong>.</p>
+            <p>Skriv "Radera konto Klokr" i ämnesraden och ange det visningsnamn du använde i appen. Vi behandlar din begäran inom 7 dagar.</p>
+            <h2>Vilken data raderas?</h2>
+            <p>När ditt konto raderas, plockas all din information omedelbart bort från våra databaser. Följande data raderas permanent:</p>
+            <ul>
+                <li>Ditt visningsnamn</li>
+                <li>Dina insamlade poäng (XP) och din upplåsta nivå</li>
+                <li>Din historik och placering på topplistorna</li>
+                <li>Den tekniska koden för din enhet (FCM-token)</li>
+                <li>Din inställda tidszon</li>
+            </ul>
+            <h2>Data som lagras</h2>
+            <p>Ingen av ovanstående personliga app-data sparas eller arkiveras efter raderingen. Om du har genomfört köp av PRO-versionen via Google Play lagras kvittot för detta köp hos Google enligt deras egna villkor och lagstiftning kring ekonomisk historik, men det frikopplas helt från din raderade spelprofil i Klokr.</p>
+        </div>
 
-        <p>Du har rätt att när som helst begära att din profil och all tillhörande data raderas från appen Klokr.</p>
+        <!-- ENGELSK TEXT -->
+        <div id="content-en">
+            <h1>Delete account and data for the Klokr app</h1>
+            <p>You have the right to request the deletion of your profile and all associated data from the Klokr app at any time.</p>
+            <h2>How to request deletion:</h2>
+            <p>The fastest way is to use the delete button directly inside the Klokr app under settings, which deletes all your data immediately. If you no longer have the app installed, you can request deletion by sending an email to <strong><a href="mailto:support@klokr.se">support@klokr.se</a></strong>.</p>
+            <p>Write "Delete account Klokr" in the subject line and provide the display name you used in the app. We will process your request within 7 days.</p>
+            <h2>What data is deleted?</h2>
+            <p>When your account is deleted, all your information is immediately removed from our databases. The following data is permanently deleted:</p>
+            <ul>
+                <li>Your display name</li>
+                <li>Your collected points (XP) and your unlocked level</li>
+                <li>Your history and placement on the leaderboards</li>
+                <li>The technical code for your device (FCM token)</li>
+                <li>Your configured time zone</li>
+            </ul>
+            <h2>Data that is retained</h2>
+            <p>None of the above personal app data is saved or archived after deletion. If you have purchased the PRO version via Google Play, the receipt for this purchase is stored by Google according to their own terms and legislation regarding financial history, but it is completely disconnected from your deleted player profile in Klokr.</p>
+        </div>
 
-        <h2>Så här begär du radering:</h2>
-        <p>Det snabbaste sättet är att använda raderingsknappen direkt inuti Klokr-appen under inställningar, vilket raderar all din data omedelbart. Om du inte längre har appen installerad kan du begära radering genom att skicka ett e-postmeddelande till <strong><a href="mailto:support@klokr.se">support@klokr.se</a></strong>.</p>
-        <p>Skriv "Radera konto Klokr" i ämnesraden och ange det visningsnamn du använde i appen. Vi behandlar din begäran inom 7 dagar.</p>
-
-        <h2>Vilken data raderas?</h2>
-        <p>När ditt konto raderas, plockas all din information omedelbart bort från våra databaser. Följande data raderas permanent:</p>
-        <ul>
-            <li>Ditt visningsnamn</li>
-            <li>Dina insamlade poäng (XP) och din upplåsta nivå</li>
-            <li>Din historik och placering på topplistorna</li>
-            <li>Den tekniska koden för din enhet (FCM-token)</li>
-            <li>Din inställda tidszon</li>
-        </ul>
-
-        <h2>Data som lagras</h2>
-        <p>Ingen av ovanstående personliga app-data sparas eller arkiveras efter raderingen. Om du har genomfört köp av PRO-versionen via Google Play lagras kvittot för detta köp hos Google enligt deras egna villkor och lagstiftning kring ekonomisk historik, men det frikopplas helt från din raderade spelprofil i Klokr.</p>
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Hämtar webbläsarens språk (t.ex. "sv-SE" eller "en-US")
+            var userLang = navigator.language || navigator.userLanguage;
+            
+            // Om språket börjar på "sv" visas den svenska texten, annars engelska
+            if (userLang.toLowerCase().startsWith('sv')) {
+                document.getElementById('content-sv').style.display = 'block';
+                document.title = "Radera konto - Klokr";
+                document.documentElement.lang = "sv";
+            } else {
+                document.getElementById('content-en').style.display = 'block';
+                document.title = "Delete Account - Klokr";
+                document.documentElement.lang = "en";
+            }
+        });
+    </script>
 </body>
 </html>

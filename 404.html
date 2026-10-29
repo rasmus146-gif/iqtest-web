@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidan finns inte – Klokr</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#070C26">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/klokr.css">
+  <script src="/assets/neural.js" defer></script>
+</head>
+<body>
+  <div class="bg calm" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+  <main class="center">
+    <div class="glass panel">
+      <div class="label">404</div>
+      <h1 id="t">Sidan finns inte</h1>
+      <p id="b">Länken kan vara fel eller gammal.</p>
+      <a class="btn btn-primary" id="h" href="/sv/">Till startsidan</a>
+    </div>
+  </main>
+  <script>
+    if ((navigator.language || "").toLowerCase().indexOf("sv") !== 0) {
+      document.documentElement.lang = "en";
+      document.title = "Page not found – Klokr";
+      document.getElementById("t").textContent = "Page not found";
+      document.getElementById("b").textContent = "The link may be wrong or out of date.";
+      var h = document.getElementById("h"); h.textContent = "Go to the home page"; h.href = "/?lang=en";
+    }
+  </script>
+</body>
+</html>

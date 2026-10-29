@@ -1,46 +1,72 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Utmaning i Klokr!</title>
-    <style>
-        body { font-family: sans-serif; text-align: center; margin-top: 50px; background-color: #1a2a42; color: white; }
-        .box { background-color: #243b55; padding: 30px; border-radius: 16px; display: inline-block; max-width: 80%; }
-        h1 { color: #FFD700; }
-        a.button { display: inline-block; margin-top: 20px; padding: 15px 30px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 18px; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
-        a.button:active { transform: scale(0.95); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utmaning i Klokr!</title>
+  <meta name="theme-color" content="#070C26">
+  <meta property="og:title" content="Du har blivit utmanad i Klokr!">
+  <meta property="og:description" content="Samma tolv frågor. Högst IQ vinner.">
+  <meta property="og:image" content="https://klokr.se/assets/icon-192.webp">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/klokr.css">
+  <script src="/assets/neural.js" defer></script>
 </head>
 <body>
-    <div class="box">
-        <h1>Du har blivit utmanad! ⚔️</h1>
-        <p>Den här länken öppnar en utmaning i spelet <strong>Klokr</strong>.</p>
-        <p>Laddar spelet... Om appen inte öppnas automatiskt, klicka på knappen nedan!</p>
-        
-        <a href="#" id="openAppBtn" class="button">Öppna Utmaningen i Appen</a>
+  <div class="bg" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+
+  <main class="center">
+    <div class="glass panel">
+      <div class="brain-stage" data-brain>
+        <div class="halo"></div><div class="iris"></div><div class="iris2"></div>
+        <div class="spark" style="--dx:70px;--dy:-60px"></div>
+        <div class="spark" style="--dx:-80px;--dy:-30px;animation-delay:1.2s"></div>
+      </div>
+      <div class="label" data-t="label">Utmana en vän</div>
+      <h1 data-t="title">Du har blivit utmanad!</h1>
+      <p data-t="body">Den här länken öppnar en utmaning i <strong>Klokr</strong>. Ni får samma frågor, och högst IQ vinner.</p>
+      <p data-t="hint" style="font-size:14px;color:var(--muted)">Öppnas inte appen av sig själv? Tryck på knappen.</p>
+      <a href="#" id="openAppBtn" class="btn btn-primary" data-t="open">Öppna utmaningen i appen</a>
+      <a href="https://play.google.com/store/apps/details?id=se.klokr.app" class="btn btn-ghost" data-t="play">Hämta Klokr på Google Play</a>
     </div>
+  </main>
 
-    <script>
-        window.onload = function() {
-            var urlParams = new URLSearchParams(window.location.search);
-            var id = urlParams.get('id');
-            var level = urlParams.get('level');
-            
-            if(id) {
-                // Bygger intent-länken med båda dina parametrar OCH en fallback till Google Play
-                var levelParam = level ? "&level=" + level : "";
-                var intentLink = "intent://klokr.se/challenge?id=" + id + levelParam + "#Intent;scheme=https;package=se.klokr.app;S.browser_fallback_url=https://play.google.com/store/apps/details?id=se.klokr.app;end;";
-                
-                // 1. Sätt länken på knappen ifall de måste klicka manuellt
-                document.getElementById('openAppBtn').href = intentLink;
+  <script>
+    (function () {
+      var EN = {
+        label: "Challenge a friend",
+        title: "You've been challenged!",
+        body: "This link opens a challenge in <strong>Klokr</strong>. You both get the same questions, and the highest IQ wins.",
+        hint: "Doesn't the app open by itself? Tap the button.",
+        open: "Open the challenge in the app",
+        play: "Get Klokr on Google Play"
+      };
+      var lang = (navigator.language || navigator.userLanguage || "").toLowerCase();
+      if (lang.indexOf("sv") !== 0) {
+        document.documentElement.lang = "en";
+        document.title = "Challenge in Klokr!";
+        document.querySelectorAll("[data-t]").forEach(function (n) { n.innerHTML = EN[n.getAttribute("data-t")]; });
+      }
 
-                // 2. Tvinga webbläsaren att försöka öppna appen automatiskt efter 0.5 sekunder
-                setTimeout(function() {
-                    window.location.href = intentLink;
-                }, 500);
-            }
-        };
-    </script>
+      var params = new URLSearchParams(window.location.search);
+      var id = params.get("id");
+      var level = params.get("level");
+      var play = "https://play.google.com/store/apps/details?id=se.klokr.app";
+      var btn = document.getElementById("openAppBtn");
+
+      if (id) {
+        // Intent-länk med id (och nivå för äldre utmaningar) och reserv till Google Play
+        var levelParam = level ? "&level=" + encodeURIComponent(level) : "";
+        var intentLink = "intent://klokr.se/challenge?id=" + encodeURIComponent(id) + levelParam +
+          "#Intent;scheme=https;package=se.klokr.app;S.browser_fallback_url=" + play + ";end;";
+        btn.href = intentLink;
+        // Försök öppna appen automatiskt efter en halv sekund
+        setTimeout(function () { window.location.href = intentLink; }, 500);
+      } else {
+        btn.style.display = "none";
+        document.querySelector('[data-t="hint"]').style.display = "none";
+      }
+    })();
+  </script>
 </body>
 </html>

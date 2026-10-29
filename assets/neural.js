@@ -45,8 +45,10 @@
     ["#1D4ED8", "138.9,158.2 145.4,190.4 154.9,190.4 148.5,170.0 140.4,158.4"]
   ];
 
-  var CORE = "144.1,89.5 119,104 93.9,89.5 93.9,60.5 119,46 144.1,60.5";
-  var CORE_INNER = "131.5,82.2 119,89.5 106.5,82.2 106.5,67.8 119,60.5 131.5,67.8";
+  // Kärnan följer hålet i facetterna, samma punkter som appen (BrainData.core/coreInner).
+  var CORE_X = 120.9, CORE_Y = 73.6;
+  var CORE = "143.7,58.8 121.3,47.9 100.3,63.0 99.8,95.8 104.9,98.5 142.7,86.3";
+  var CORE_INNER = "133.3,65.5 121.1,59.6 109.7,67.8 109.4,85.6 112.2,87.1 132.7,80.5";
 
   function el(name, attrs, parent) {
     var n = document.createElementNS(NS, name);
@@ -62,7 +64,11 @@
     var id = "b" + (uid++);
     var svg = el("svg", { viewBox: "-4 -4 228 204", "aria-hidden": "true", focusable: "false" });
     var defs = el("defs", {}, svg);
-    var rg = el("radialGradient", { id: id + "c", cx: "50%", cy: "45%", r: "60%" }, defs);
+    var rg = el("radialGradient", { id: id + "c", gradientUnits: "userSpaceOnUse", cx: CORE_X, cy: CORE_Y - 3, r: 32 }, defs);
+    var gw = el("radialGradient", { id: id + "w", gradientUnits: "userSpaceOnUse", cx: CORE_X, cy: CORE_Y, r: 34 }, defs);
+    el("stop", { offset: "0", "stop-color": "#FF8A1F", "stop-opacity": ".75" }, gw);
+    el("stop", { offset: ".5", "stop-color": "#FF8A1F", "stop-opacity": ".3" }, gw);
+    el("stop", { offset: "1", "stop-color": "#FF8A1F", "stop-opacity": "0" }, gw);
     el("stop", { offset: "0", "stop-color": "#FFD36B" }, rg);
     el("stop", { offset: ".55", "stop-color": "#FF8A1F" }, rg);
     el("stop", { offset: "1", "stop-color": "#E85D04" }, rg);
@@ -87,6 +93,7 @@
         p.style.animationDelay = (-((i * 1.37) % 6)).toFixed(2) + "s";
       });
     }
+    if (!small) el("circle", { class: "core-glow", cx: CORE_X, cy: CORE_Y, r: 34, fill: "url(#" + id + "w)" }, svg);
     el("polygon", { class: small ? "" : "core", points: CORE, fill: "url(#" + id + "c)", stroke: "rgba(255,255,255,.8)", "stroke-width": "1.5", "stroke-linejoin": "round" }, svg);
     el("polygon", { points: CORE_INNER, fill: "rgba(255,255,255,.22)", filter: small ? "" : "url(#" + id + "g)" }, svg);
     return svg;

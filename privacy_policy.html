@@ -27,10 +27,10 @@
     <a class="back" href="/?lang=en">&larr; Back to home</a>
     <article class="glass">
       <h1>Privacy Policy for Klokr</h1>
-      <p class="updated">Last updated: April 11, 2026</p>
+      <p class="updated">Last updated: November 3, 2026</p>
 
       <h2>1. Introduction</h2>
-      <p>Welcome to Klokr. Your privacy is our highest priority. This policy describes how we handle data in the app "Klokr: IQ Duel & Brain Train". We apply the principle of data minimization: we only collect what is strictly necessary for the game to function.</p>
+      <p>Welcome to Klokr. Your privacy is our highest priority. This policy describes how we handle data in the app "Klokr: IQ Test & Brain Games". We apply the principle of data minimization: we only collect what is strictly necessary for the game to function.</p>
 
       <h2>2. Data Controller</h2>
       <p>The controller responsible for the processing of personal data is:<br>
@@ -40,19 +40,24 @@
       <h2>3. Data Collection and Purpose</h2>
       <p>We do not collect email addresses or real names. The following data is processed:</p>
       <ul>
-          <li><strong>UUID (Anonymous ID):</strong> Created locally to save your XP and progress. (Legal basis: Performance of a contract).</li>
-          <li><strong>Display Name:</strong> A voluntarily chosen alias for leaderboards.</li>
+          <li><strong>Anonymous ID and anonymous sign-in:</strong> The app creates a random ID and signs in anonymously (Firebase Authentication) so that your XP, scores and matches belong to your phone. No Google account or email is used. (Legal basis: Performance of a contract).</li>
+          <li><strong>Display Name:</strong> An alias you choose yourself. It is shown on the leaderboards and in matches against friends.</li>
+          <li><strong>Results on leaderboards and in matches:</strong> XP, score and time on the weekly and daily leaderboards, and your results and right or wrong per question in matches against friends, so your opponent can see who won. (Legal basis: Performance of a contract).</li>
           <li><strong>Timezone:</strong> A general timezone string (e.g., "Europe/Stockholm") is saved to allow the app to send notifications at reasonable times for your region. No exact GPS coordinates or location services are used.</li>
-          <li><strong>FCM Token:</strong> A temporary technical address used to send push notifications for challenges. This is automatically deleted after 14 days via an automated TTL (Time-To-Live) policy.</li>
+          <li><strong>FCM Token:</strong> A technical address for your phone used for notifications, for example when a friend has played your match or when the weekly results are ready. Google replaces it regularly, and it is deleted when you delete your data.</li>
+          <li><strong>Anonymous statistics:</strong> A summary of your results (level per question type, response times and error patterns, without name or contact details) is uploaded under a separate random ID so you can be compared with other Klokr players. It is deleted when you delete your data. Your result in the daily puzzle (estimated level, right or wrong per question and time) is also stored without a name under a new random ID for each day, to work out how all players did on the day's questions. (Legal basis: Legitimate interest).</li>
+          <li><strong>Usage statistics (Google Analytics for Firebase):</strong> How the app is used, for example which parts are opened, ads watched and purchases of Pro, linked to a random app ID. We use it to improve the app. (Legal basis: Legitimate interest).</li>
+          <li><strong>Purchase of Klokr Pro:</strong> The purchase is made through Google Play. We receive no payment details, only confirmation that the purchase exists, and we store in your profile that Pro is purchased.</li>
+          <li><strong>Reports:</strong> If you report a display name, the name, your ID and the time are stored so we can review the report.</li>
           <li><strong>Advertising Data (AdMob):</strong> Only if you have given your explicit consent, Google AdMob collects device identifiers to provide personalized ads.</li>
       </ul>
 
       <h2>4. Storage and Security</h2>
-      <p>All data is stored on secure servers within the EU (Google Cloud/Firebase in Germany and Belgium). We use industry-standard encryption to protect your information.</p>
+      <p>Data in Firebase is stored on secure servers within the EU (Google Cloud, Belgium and the Netherlands). Ads (AdMob) and usage statistics (Google Analytics) are handled by Google under Google's privacy policy. We use industry-standard encryption to protect your information.</p>
 
       <h2>5. Your Rights and Data Deletion</h2>
       <p>You have the right to delete all data we hold about you at any time.</p>
-      <p><strong>How to delete your data:</strong> Go to "Settings" in the app and click on "Delete all my data". This will immediately and permanently delete your profile, scores, and unique identifier from our servers. Any remaining data in historical leaderboards will be automatically anonymized.</p>
+      <p><strong>How to delete your data:</strong> Tap the profile icon in the top left of the app and choose "Delete all my data and XP". This immediately and permanently deletes your profile, your scores, your name in matches, your anonymous statistics and your anonymous sign-in from our servers. Older leaderboards and the daily puzzle are cleared within a day. If you no longer have the app, see <a href="/radera_konto.html?lang=en">Delete account</a>.</p>
     </article>
   </main>
 

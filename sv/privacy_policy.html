@@ -27,10 +27,10 @@
     <a class="back" href="/sv/">&larr; Tillbaka till startsidan</a>
     <article class="glass">
       <h1>Integritetspolicy för Klokr</h1>
-      <p class="updated">Senast uppdaterad: 11 april 2026</p>
+      <p class="updated">Senast uppdaterad: 3 november 2026</p>
 
       <h2>1. Introduktion</h2>
-      <p>Välkommen till Klokr. Din integritet är vår högsta prioritet. Denna policy beskriver hur vi hanterar data i appen "Klokr: IQ Duel & Brain Train". Vi tillämpar principen om dataminimering: vi samlar endast in det absolut nödvändiga för att spelet ska fungera.</p>
+      <p>Välkommen till Klokr. Din integritet är vår högsta prioritet. Denna policy beskriver hur vi hanterar data i appen "Klokr: IQ-test & hjärnträning". Vi tillämpar principen om dataminimering: vi samlar endast in det absolut nödvändiga för att spelet ska fungera.</p>
 
       <h2>2. Personuppgiftsansvarig</h2>
       <p>Ansvarig för behandlingen av personuppgifter är:<br>
@@ -38,21 +38,26 @@
       E-post: <a href="mailto:support@klokr.se">support@klokr.se</a></p>
 
       <h2>3. Data som samlas in och syfte</h2>
-      <p>Vi samlar inte in e-postadresser eller namn. Följande data hanteras:</p>
+      <p>Vi samlar inte in e-postadresser eller riktiga namn. Följande data hanteras:</p>
       <ul>
-          <li><strong>UUID (Anonymt ID):</strong> Skapas lokalt för att spara din XP och dina framsteg. (Rättslig grund: Avtal).</li>
-          <li><strong>Visningsnamn:</strong> Ett frivilligt valt alias för topplistor.</li>
+          <li><strong>Anonymt ID och anonym inloggning:</strong> Appen skapar ett slumpat ID och loggar in anonymt (Firebase Authentication) så att din XP, dina poäng och dina matcher hör till din telefon. Inget Google-konto eller e-post används. (Rättslig grund: Avtal).</li>
+          <li><strong>Visningsnamn:</strong> Ett alias som du väljer själv. Det visas på topplistorna och i matcher mot vänner.</li>
+          <li><strong>Resultat på topplistor och i matcher:</strong> XP, poäng och tid på veckans och dagens topplistor, samt dina resultat och rätt eller fel per fråga i matcher mot vänner, så att motspelaren kan se vem som vann. (Rättslig grund: Avtal).</li>
           <li><strong>Tidszon:</strong> En generell tidszonssträng (t.ex. "Europe/Stockholm") sparas för att appen ska kunna skicka notiser på rimliga tider för din region. Inga exakta GPS-koordinater eller platstjänster används.</li>
-          <li><strong>FCM Token:</strong> En tillfällig teknisk adress för att skicka push-notiser vid utmaningar. Denna raderas automatiskt efter 14 dagar via en automatiserad TTL-policy (Time-To-Live).</li>
+          <li><strong>FCM-token:</strong> En teknisk adress till din telefon för notiser, till exempel när en vän har spelat er match eller när veckans resultat är klara. Google byter ut den med jämna mellanrum, och den raderas när du raderar din data.</li>
+          <li><strong>Anonym statistik:</strong> En sammanfattning av dina resultat (nivå per frågetyp, svarstider och felmönster, utan namn eller kontaktuppgifter) laddas upp under ett separat slumpat ID så att du kan jämföras med andra Klokr-spelare. Den raderas när du raderar din data. Resultatet i dagens utmaning (uppskattad nivå, rätt eller fel per fråga och tid) sparas dessutom utan namn under ett nytt slumpat ID för varje dag, för att räkna ut hur alla spelare klarade dagens frågor. (Rättslig grund: Berättigat intresse).</li>
+          <li><strong>Användningsstatistik (Google Analytics for Firebase):</strong> Hur appen används, till exempel vilka delar som öppnas, sedda annonser och köp av Pro, kopplat till ett slumpat app-ID. Vi använder den för att förbättra appen. (Rättslig grund: Berättigat intresse).</li>
+          <li><strong>Köp av Klokr Pro:</strong> Köpet görs via Google Play. Vi får inga betaluppgifter, bara besked om att köpet finns, och vi sparar att Pro är köpt i din profil.</li>
+          <li><strong>Rapporter:</strong> Om du rapporterar ett visningsnamn sparas namnet, ditt ID och tidpunkten så att vi kan granska rapporten.</li>
           <li><strong>Annonsdata (AdMob):</strong> Endast om du gett ditt samtycke, samlar Google AdMob in enhets-ID för personifierade annonser.</li>
       </ul>
 
       <h2>4. Lagring och säkerhet</h2>
-      <p>All data lagras på säkra servrar inom EU (Google Cloud/Firebase i Tyskland och Belgien). Vi använder branschstandard för kryptering för att skydda din information.</p>
+      <p>Data i Firebase lagras på säkra servrar inom EU (Google Cloud, Belgien och Nederländerna). Annonser (AdMob) och användningsstatistik (Google Analytics) hanteras av Google enligt Googles integritetspolicy. Vi använder branschstandard för kryptering för att skydda din information.</p>
 
       <h2>5. Dina rättigheter och radering</h2>
       <p>Du har rätt att när som helst radera all data vi har om dig.</p>
-      <p><strong>Hur du raderar din data:</strong> Gå till "Inställningar" i appen och klicka på "Radera all min data". Detta raderar omedelbart och permanent din profil, dina poäng och din unika identifierare från våra servrar. Eventuella kvarvarande data i historiska topplistor anonymiseras automatiskt.</p>
+      <p><strong>Hur du raderar din data:</strong> Tryck på profilikonen uppe till vänster i appen och välj "Radera all min data och XP". Detta raderar omedelbart och permanent din profil, dina poäng, ditt namn i matcherna, din anonyma statistik och din anonyma inloggning från våra servrar. Äldre topplistor och dagens pussel rensas inom ett dygn. Har du inte appen kvar, se <a href="/radera_konto.html?lang=sv">Radera konto</a>.</p>
     </article>
   </main>
 
